@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Be My Valentine ❤️</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ffb6c1, #ffe6f0);
+            margin: 0;
+            padding: 50px;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            color: #ff0066;
+        }
+
+        /* Floating Small Image */
+        .smallPic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 20px;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        #yesBtn {
+            background-color: #ff4d88;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: gray;
+            color: white;
+            position: absolute;
+        }
+
+        #photoSection {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            justify-items: center;
+            margin-top: 20px;
+        }
+
+        /* Animated Photos */
+        .grid img {
+            width: 150px;
+            height: 150px;
+            border-radius: 15px;
+            object-fit: cover;
+            animation: zoomIn 3s infinite alternate;
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        #messageSection {
+            display: none;
+            margin-top: 30px;
+        }
+
+        #messageSection h2 {
+            color: #ff0066;
+        }
+
+        /* Celebration Blast */
+        #celebrate {
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            display: none;
+            animation: pop 1s ease-out;
+        }
+
+        @keyframes pop {
+            0% { transform: translate(-50%, -50%) scale(0); }
+            100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Will You Be My Valentine? 💘</h1>
+
+    <!-- Small Floating Image -->
+    <img src="your.gif" class="smallPic">
+
+    <br><br>
+
+    <button id="yesBtn">Yes ❤️</button>
+    <button id="noBtn">No 😢</button>
+
+    <!-- Celebration -->
+    <div id="celebrate">🎉🎊💖🎊🎉</div>
+
+    <div id="photoSection">
+        <div class="grid">
+            <img src="n.PNG">
+            <img src="e.jpeg">
+            <img src="ee.PNG">
+            <img src="l.jpeg">
+            <img src="d.PNG">
+            <img src="aa.PNG">
+            <img src="p.jpeg">
+            <img src="r.jpeg">
+        </div>
+
+        <br>
+        <button id="nextBtn">Click Here 💌</button>
+    </div>
+
+    <div id="messageSection">
+        <h2>Happy Valentine My Love ❤️</h2>
+        <p>
+            Happy Valentine’s Day devuu ❤️ <br><br>
+
+            My hubby, my sweet puntu… you stole my heart and now I don’t even want it back.
+            Keep it safe, okay? Because it only beats for you. <br><br>
+
+            When you’re happy, I’m happy. When you’re sad, I feel it too.
+            You are my peace in chaos, my calm in storms. <br><br>
+
+            Sometimes I act childish, sometimes I get emotional…
+            but deep inside, all I want is your love and attention. <br><br>
+
+            I love you more than my words, more than my ego,
+            more than my sleep 😌 (and you know how much I love sleep). <br><br>
+
+            Stay mine forever, my devuu, my hubby, my puntu.
+            Muahhhhh 💋💋💋
+        </p>
+    </div>
+
+<script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const photoSection = document.getElementById("photoSection");
+    const nextBtn = document.getElementById("nextBtn");
+    const messageSection = document.getElementById("messageSection");
+    const celebrate = document.getElementById("celebrate");
+
+    // YES button click with celebration
+    yesBtn.addEventListener("click", function () {
+        celebrate.style.display = "block";
+
+        setTimeout(() => {
+            celebrate.style.display = "none";
+            yesBtn.style.display = "none";
+            noBtn.style.display = "none";
+            photoSection.style.display = "block";
+        }, 1000);
+    });
+
+    // NO button escape
+    noBtn.addEventListener("mouseover", moveButton);
+    noBtn.addEventListener("click", moveButton);
+
+    function moveButton() {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 100);
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    }
+
+    // Show final message
+    nextBtn.addEventListener("click", function () {
+        photoSection.style.display = "none";
+        messageSection.style.display = "block";
+    });
+
+</script>
+
+</body>
+</html>
